@@ -1,0 +1,68 @@
+@use 'sass:color';
+@use 'sass:math';
+
+// ==============================
+// FUNCIONES DE COLOR
+// ==============================
+
+// Ajuste de opacidad
+@function set-alpha($color, $alpha) {
+  @if (type-of($color)=='color') {
+    $alpha: math.div($alpha, 100);
+
+    @if ($alpha < 0 or $alpha > 1) {
+      @error "El valor de alpha debe estar entre 0 y 100.";
+    }
+
+    @return rgba($color, $alpha);
+  }
+
+  @else {
+    @error "El primer parámetro debe ser un color válido.";
+  }
+}
+
+// Luminancia relativa (WCAG)
+@function luminance($color) {
+  $r: math.div(color.channel($color, 'red'), 255);
+  $g: math.div(color.channel($color, 'green'), 255);
+  $b: math.div(color.channel($color, 'blue'), 255);
+
+  @return (0.2126 * if($r <=0.03928, math.div($r, 12.92), pow(math.div($r + 0.055, 1.055), 2.4)) + 0.7152 * if($g <=0.03928, math.div($g, 12.92), pow(math.div($g + 0.055, 1.055), 2.4)) + 0.0722 * if($b <=0.03928, math.div($b, 12.92), pow(math.div($b + 0.055, 1.055), 2.4)));
+}
+
+// Contraste entre dos colores
+@function contrast-ratio($color1, $color2) {
+  $l1: luminance($color1) + 0.05;
+  $l2: luminance($color2) + 0.05;
+  @return if($l1 > $l2, math.div($l1, $l2), math.div($l2, $l1));
+}
+
+// Garantiza ratio mínimo de contraste
+@function ensure-contrast($color, $background, $ratio: 4.5) {
+  $adjusted-color: $color;
+
+  @while (contrast-ratio($adjusted-color, $background) < $ratio) {
+    $adjusted-color: if(lightness($adjusted-color) > 50, darken($adjusted-color, 5%), lighten($adjusted-color, 5%));
+  }
+
+  @return $adjusted-color;
+}
+
+// Complementario (HSL)
+@function complementary($color) {
+  @if type-of($color)=='color' {
+    $hue: (
+      hue($color) + 180) % 360;
+    @return hsl($hue, saturation($color), lightness($color)
+  );
+}
+
+@else {
+  @error "El valor '#{$color}' no es un color válido.";
+}
+}
+
+@function readable-color($bg, $light: #fff, $dark: #000, $threshold: 4.5) {
+  @return if(contrast-ratio($bg, $light) >=$threshold, $light, $dark);
+}

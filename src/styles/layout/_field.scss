@@ -1,0 +1,87 @@
+.field {}
+
+.field.has-addons {
+    display: flex;
+    justify-content: flex-start
+}
+
+.field.has-addons .control:not(:last-child) {
+    margin-inline-end: -1px
+}
+
+.field.has-addons .control:not(:first-child):not(:last-child) .button,
+.field.has-addons .control:not(:first-child):not(:last-child) .input,
+.field.has-addons .control:not(:first-child):not(:last-child) .select select {
+    border-radius: 0
+}
+
+.field.has-addons .control:first-child:not(:only-child) .button,
+.field.has-addons .control:first-child:not(:only-child) .input,
+.field.has-addons .control:first-child:not(:only-child) .select select {
+    border-end-end-radius: 0;
+    border-start-end-radius: 0
+}
+
+.field.has-addons .control:last-child:not(:only-child) .button,
+.field.has-addons .control:last-child:not(:only-child) .input,
+.field.has-addons .control:last-child:not(:only-child) .select select {
+    border-end-start-radius: 0;
+    border-start-start-radius: 0
+}
+
+.field.has-addons .control .button:not([disabled]).is-hovered,
+.field.has-addons .control .button:not([disabled]):hover,
+.field.has-addons .control .input:not([disabled]).is-hovered,
+.field.has-addons .control .input:not([disabled]):hover,
+.field.has-addons .control .select select:not([disabled]).is-hovered,
+.field.has-addons .control .select select:not([disabled]):hover {
+    z-index: 2
+}
+
+.field.has-addons .control .button:not([disabled]).is-active,
+.field.has-addons .control .button:not([disabled]).is-focused,
+.field.has-addons .control .button:not([disabled]):active,
+.field.has-addons .control .button:not([disabled]):focus,
+.field.has-addons .control .input:not([disabled]).is-active,
+.field.has-addons .control .input:not([disabled]).is-focused,
+.field.has-addons .control .input:not([disabled]):active,
+.field.has-addons .control .input:not([disabled]):focus,
+.field.has-addons .control .select select:not([disabled]).is-active,
+.field.has-addons .control .select select:not([disabled]).is-focused,
+.field.has-addons .control .select select:not([disabled]):active,
+.field.has-addons .control .select select:not([disabled]):focus {
+    z-index: 3
+}
+
+.field.has-addons .control .button:not([disabled]).is-active:hover,
+.field.has-addons .control .button:not([disabled]).is-focused:hover,
+.field.has-addons .control .button:not([disabled]):active:hover,
+.field.has-addons .control .button:not([disabled]):focus:hover,
+.field.has-addons .control .input:not([disabled]).is-active:hover,
+.field.has-addons .control .input:not([disabled]).is-focused:hover,
+.field.has-addons .control .input:not([disabled]):active:hover,
+.field.has-addons .control .input:not([disabled]):focus:hover,
+.field.has-addons .control .select select:not([disabled]).is-active:hover,
+.field.has-addons .control .select select:not([disabled]).is-focused:hover,
+.field.has-addons .control .select select:not([disabled]):active:hover,
+.field.has-addons .control .select select:not([disabled]):focus:hover {
+    z-index: 4
+}
+
+.field.has-addons .control.is-expanded {
+    flex-grow: 1;
+    flex-shrink: 1
+}
+
+.field.has-addons.has-addons-centered {
+    justify-content: center
+}
+
+.field.has-addons.has-addons-right {
+    justify-content: flex-end
+}
+
+.field.has-addons.has-addons-fullwidth .control {
+    flex-grow: 1;
+    flex-shrink: 0
+}

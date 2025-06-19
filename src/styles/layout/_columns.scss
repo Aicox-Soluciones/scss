@@ -1,0 +1,62 @@
+@use '../abstracts/variables/spacing' as *;
+@use '../abstracts/mixins/media' as *;
+
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$spacing-sm;
+  margin-right: -$spacing-sm;
+
+  &.is-multiline {
+    flex-wrap: wrap;
+  }
+
+  &.is-centered {
+    justify-content: center;
+  }
+
+  &.is-vcentered {
+    align-items: center;
+  }
+}
+
+.column {
+  flex: 1 1 0;
+  padding: $spacing-sm;
+
+  &.is-narrow {
+    flex: none;
+  }
+
+  // Mobile default (full width)
+  &.is-half,
+  &.is-one-third,
+  &.is-two-thirds,
+  &.is-one-quarter,
+  &.is-three-quarters,
+  &.is-one-fifth,
+  &.is-two-fifths,
+  &.is-three-fifths,
+  &.is-four-fifths {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  // Tablet
+  @include respond-to(tablet) {
+    &.is-half       { flex: 0 0 50%; max-width: 50%; }
+    &.is-one-third  { flex: 0 0 33.3333%; max-width: 33.3333%; }
+    &.is-two-thirds { flex: 0 0 66.6666%; max-width: 66.6666%; }
+    &.is-one-quarter { flex: 0 0 25%; max-width: 25%; }
+    &.is-three-quarters { flex: 0 0 75%; max-width: 75%; }
+    &.is-one-fifth  { flex: 0 0 20%; max-width: 20%; }
+    &.is-two-fifths { flex: 0 0 40%; max-width: 40%; }
+    &.is-three-fifths { flex: 0 0 60%; max-width: 60%; }
+    &.is-four-fifths { flex: 0 0 80%; max-width: 80%; }
+  }
+
+  // Offset
+  &.is-offset-half { margin-left: 50%; }
+}
+

@@ -1,0 +1,121 @@
+@use '../abstracts/mixins/button' as *;
+@use '../abstracts/variables/colors' as *;
+@use '../abstracts/variables/opacity' as *;
+
+.button {
+    @include button-base;
+
+    &.is-primary {
+        background-color: var(--primary-500);
+        color: var(--primary-100);
+        border: 1px solid var(--primary-500);
+
+        &:hover {
+            background-color: var(--primary-600);
+            border-color: var(--primary-600);
+        }
+    }
+
+    &.is-secondary {
+        background-color: var(--accent-100);
+        color: var(--accent-800);
+        border: 1px solid var(--accent-300);
+
+        &:hover {
+            background-color: var(--accent-200);
+            color: var(--accent-900);
+        }
+    }
+
+    &.is-success {
+        @include button-variant($color-success);
+    }
+
+    &.is-warning {
+        @include button-variant($color-warning);
+    }
+
+    &.is-danger {
+        @include button-variant($color-error);
+    }
+
+    &.is-info {
+        @include button-variant($color-info);
+    }
+
+    &.is-outline {
+        background-color: transparent;
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+
+        &:hover {
+            background-color: var(--accent-100);
+            color: var(--accent-800);
+        }
+    }
+
+    &.is-link {
+        color: var(--accent-500);
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--accent-400);
+        }
+    }
+
+    &:disabled {
+        opacity: $opacity-disabled;
+        cursor: not-allowed;
+    }
+}
+
+// ==============================
+// Button Group Styles
+// ==============================
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-start;
+
+    &.has-addons {
+        gap: 0;
+
+        .button {
+            &:not(:first-child) {
+                border-start-start-radius: 0;
+                border-end-start-radius: 0;
+            }
+
+            &:not(:last-child) {
+                border-start-end-radius: 0;
+                border-end-end-radius: 0;
+                margin-inline-end: -1px;
+            }
+
+            &:hover,
+            &.is-hovered {
+                z-index: 2;
+            }
+
+            &:active,
+            &:focus,
+            &.is-active,
+            &.is-focused,
+            &.is-selected {
+                z-index: 3;
+            }
+
+            &:hover:is(:active, :focus, .is-active, .is-focused, .is-selected) {
+                z-index: 4;
+            }
+
+            &.is-expanded {
+                flex-grow: 1;
+                flex-shrink: 1;
+            }
+        }
+    }
+}

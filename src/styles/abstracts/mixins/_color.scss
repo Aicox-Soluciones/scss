@@ -1,0 +1,30 @@
+// ==============================
+// MIXINS DE COLOR DINÁMICO
+// ==============================
+
+@mixin generate-color-variables($color-map, $prefix: "") {
+  @each $name, $color in $color-map {
+    --#{$prefix}-#{$name}: #{$color};
+  }
+}
+
+@mixin generate-inverse-color-variables($color-map, $prefix: "inverse-") {
+  @each $name, $color in $color-map {
+    @if (type-of($color) == 'color') {
+      $hue: hue($color);
+      $saturation: saturation($color);
+      $lightness: lightness($color);
+      $inverse-lightness: 100% - $lightness;
+      $inverse-color: hsl($hue, $saturation, $inverse-lightness);
+      --#{$prefix}-#{$name}: #{$inverse-color};
+    } @else {
+      @error "El valor #{$color} no es un color válido.";
+    }
+  }
+}
+
+@mixin generate-complementary-color-variables($color-map, $prefix: "complementary-") {
+  @each $name, $color in $color-map {
+    --#{$prefix}-#{$name}: #{complementary($color)};
+  }
+}

@@ -1,0 +1,43 @@
+@use '../abstracts/variables/colors' as *;
+@use '../abstracts/variables/radius' as *;
+@use '../abstracts/variables/spacing' as *;
+@use '../abstracts/variables/opacity' as *;
+@use 'delete';
+
+.notification {
+  position: relative;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-md;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: var(--info-100);
+  color: var(--text-color);
+  border: 1px solid var(--info-300);
+
+  &.is-success {
+    background-color: $color-success;
+    color: white;
+  }
+
+  &.is-warning {
+    background-color: $color-warning;
+    color: black;
+  }
+
+  &.is-danger {
+    background-color: $color-error;
+    color: white;
+  }
+
+  &.is-info {
+    background-color: $color-info;
+    color: white;
+  }
+
+  // Botón de cierre
+   .delete {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+  }
+}

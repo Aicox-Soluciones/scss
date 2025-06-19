@@ -1,0 +1,41 @@
+// ==============================
+// 1. Funciones utilitarias
+// ==============================
+@use 'abstracts/functions/color' as color-fn;
+
+// ==============================
+// 2. Mixins globales
+// ==============================
+@use 'abstracts/mixins';
+
+// ==============================
+// 3. Variables y tokens
+// ==============================
+@use 'abstracts/variables'; 
+
+// ==============================
+// 4. Base (reset + global)
+// ==============================
+@use 'base/fonts';
+@use 'base/reset';
+
+
+// ==============================
+// 5. Temas y utilidades visuales
+// ==============================
+@use 'themes';
+
+// ==============================
+// 5. Layout
+// ==============================
+@use 'layout';
+
+
+// ==============================
+// 6. Componentes
+// ==============================
+@use 'components/notification';
+@use 'components/buttons';
+@use 'components/delete';
+@use 'components/table';
+// @use 'components/navbar';

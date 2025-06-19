@@ -1,0 +1,26 @@
+
+.theme-dark {    
+    --bg-color: var(--primary-900);
+    --text-color: var(--primary-100);
+    --accent-color: var(--accent-400);
+    --accent-color-hover: var(--accent-300);
+
+    --border-color: var(--primary-700);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+
+    --disabled-background-field: var(--grey-800);
+    --disabled-color-field: var(--grey-500);
+
+    --delete-background: var(--grey-800);   
+  --delete-color: var(--primary-100);     
+
+  --table-success-bg: hsl(145, 30%, 20%);
+  --table-warning-bg: hsl(45, 80%, 25%);
+  --table-error-bg:   hsl(5, 70%, 25%);
+  --table-info-bg:    hsl(210, 60%, 25%);
+
+  --table-success-text: var(--primary-100);
+  --table-warning-text: var(--primary-100);
+  --table-error-text:   var(--primary-100);
+  --table-info-text:    var(--primary-100);
+}

@@ -1,0 +1,104 @@
+@use '../abstracts/variables/spacing' as *;
+@use '../abstracts/variables/colors' as *;
+@use '../abstracts/variables/typography' as *;
+
+// Contenedor con scroll horizontal
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+
+  .table {
+    min-width: 100%;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-md;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin-bottom: $spacing-lg;
+
+  th,
+  td {
+    text-align: left;
+    padding: $spacing-sm;
+    border: none;
+  }
+
+  th {
+    font-weight: $font-weight-bold;
+    color: var(--text-color);
+  }
+
+  // Columnas opcionales
+  &.is-bordered th,
+  &.is-bordered td {
+    border: 1px solid var(--border-color);
+  }
+
+  &.is-narrow th,
+  &.is-narrow td {
+    padding: $spacing-xs;
+  }
+
+  &.is-striped tbody tr:nth-child(odd) {
+    background-color: var(--grey-100);
+  }
+
+  &.is-hoverable tbody tr:hover {
+    background-color: var(--grey-200);
+  }
+
+  &.is-fullwidth {
+    width: 100%;
+  }
+
+  // ==========================
+  // Estilos por tipo de estado
+  // ==========================
+
+  // Fila completa
+  tr.is-success {
+    background-color: var(--table-success-bg);
+    color: var(--table-success-text);
+  }
+
+  tr.is-warning {
+    background-color: var(--table-warning-bg);
+    color: var(--table-warning-text);
+  }
+
+  tr.is-error {
+    background-color: var(--table-error-bg);
+    color: var(--table-error-text);
+  }
+
+  tr.is-info {
+    background-color: var(--table-info-bg);
+    color: var(--table-info-text);
+  }
+
+  // Celda individual
+  td.is-success {
+    background-color: var(--table-success-bg);
+    color: var(--table-success-text);
+  }
+
+  td.is-warning {
+    background-color: var(--table-warning-bg);
+    color: var(--table-warning-text);
+  }
+
+  td.is-error {
+    background-color: var(--table-error-bg);
+    color: var(--table-error-text);
+  }
+
+  td.is-info {
+    background-color: var(--table-info-bg);
+    color: var(--table-info-text);
+  }
+}

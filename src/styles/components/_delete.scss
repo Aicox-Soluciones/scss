@@ -1,0 +1,57 @@
+.delete {
+  appearance: none;
+  background-color: var(--delete-background);
+  border: none;
+  border-radius: var(--delete-radius);
+  cursor: pointer;
+  display: inline-flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 1em;
+  height: var(--delete-dimensions);
+  width: var(--delete-dimensions);
+  max-height: var(--delete-dimensions);
+  max-width: var(--delete-dimensions);
+  min-height: var(--delete-dimensions);
+  min-width: var(--delete-dimensions);
+  outline: none;
+  pointer-events: auto;
+  position: relative;
+  vertical-align: top;
+  opacity: 0.6;
+
+  &::before,
+  &::after {
+    background-color: var(--delete-color);
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform-origin: center center;
+  }
+
+  &::before {
+    height: 2px;
+    width: 50%;
+  }
+
+  &::after {
+    height: 50%;
+    width: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.85;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+
+  &.is-small   { --delete-dimensions: 1rem; }
+  &.is-medium  { --delete-dimensions: 1.5rem; }
+  &.is-large   { --delete-dimensions: 2rem; }
+}

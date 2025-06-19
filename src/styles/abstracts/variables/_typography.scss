@@ -1,0 +1,55 @@
+
+@use 'sass:map';
+
+// ==============================
+// Familias tipográficas
+// ==============================
+
+$font-families: (
+  sans: ("Inter", "SF Pro", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif),
+  serif: ("Jura", "Georgia", "Times New Roman", serif),
+  mono: ("Inconsolata", "Hack", "SF Mono", "Roboto Mono", "Source Code Pro", "Ubuntu Mono", monospace)
+);
+
+$font-family-base: map.get($font-families, sans);
+$font-family-heading: map.get($font-families, serif);
+$font-family-mono: map.get($font-families, mono);
+
+// ==============================
+// Escala tipográfica (rem)
+// ==============================
+
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-md: 1rem;      // 16px
+$font-size-lg: 1.25rem;   // 20px
+$font-size-xl: 1.5rem;    // 24px
+$font-size-2xl: 2rem;     // 32px
+$font-size-3xl: 2.5rem;   // 40px
+$font-size-4xl: 3rem;     // 48px
+
+// ==============================
+// Pesos tipográficos
+// ==============================
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// ==============================
+// Altura de línea
+// ==============================
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-loose: 1.75;
+
+// ==============================
+// Espaciado entre letras
+// ==============================
+
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;

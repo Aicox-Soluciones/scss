@@ -1,0 +1,17 @@
+
+.theme-light {
+
+  --bg-color: var(--primary-100);
+  --text-color: var(--primary-900);
+  --accent-color: var(--accent-500);
+  --accent-color-hover: var(--accent-600);
+
+  --border-color: var(--primary-300);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  --disabled-background-field: var(--grey-200);
+  --disabled-color-field: var(--grey-500);
+
+  --delete-background: var(--grey-200);  
+  --delete-color: var(--grey-900);       
+}

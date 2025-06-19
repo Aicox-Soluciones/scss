@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../variables/breakpoints' as *;
+
+@mixin respond-to($device) {
+  $min: map.get($breakpoints, $device);
+
+  @if $min != null {
+    @media screen and (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @error "No se encontró el breakpoint '#{$device}' en \$breakpoints.";
+  }
+}

@@ -1,0 +1,80 @@
+@use '../abstracts/variables/typography' as *;
+@use '../abstracts/variables/spacing' as *;
+
+// ==============================
+// Reset básico
+// ==============================
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// ==============================
+// Elementos raíz
+// ==============================
+
+html, body {
+  height: 100%;
+  font-family: $font-family-base;
+  font-size: $font-size-md;
+  line-height: $line-height-normal;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ==============================
+// Tipografía
+// ==============================
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+small {
+  font-size: $font-size-sm;
+}
+
+// ==============================
+// Elementos interactivos
+// ==============================
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// ==============================
+// Listas e imágenes
+// ==============================
+
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: $spacing-md;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

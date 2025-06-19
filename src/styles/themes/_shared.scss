@@ -1,0 +1,28 @@
+@use '../abstracts/variables/colors' as *;
+@use '../abstracts/mixins/color' as *;
+
+:root {
+    @include generate-color-variables($palette-primary, 'primary');
+    @include generate-color-variables($palette-accent, 'accent');
+    @include generate-color-variables($palette-grey, 'grey');
+
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-error: #{$color-error};
+  --color-info: #{$color-info};
+
+  --delete-dimensions: 1.25rem;
+  --delete-background: var(--grey-900, #000);
+  --delete-color: var(--text-color, #fff);
+  --delete-radius: 50%;
+
+  --table-success-bg: hsl(145, 60%, 85%);
+  --table-warning-bg: hsl(45, 90%, 85%);
+  --table-error-bg:   hsl(5, 70%, 85%);
+  --table-info-bg:    hsl(210, 80%, 90%);
+
+  --table-success-text: #134d36;
+  --table-warning-text: #7f6000;
+  --table-error-text:   #701d1d;
+  --table-info-text:    #004080;
+}

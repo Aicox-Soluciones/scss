@@ -1,0 +1,80 @@
+@use 'sass:meta';
+@use 'sass:color';
+@use '../variables/radius' as *;
+@use '../variables/spacing' as *;
+@use '../variables/typography' as *;
+@use '../variables/opacity' as *;
+@use '../functions/color' as color-fn;
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon:first-child:not(:last-child) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &.is-small {
+    font-size: $font-size-sm;
+    border-radius: $radius-sm;
+    padding: $spacing-xs $spacing-sm;
+  }
+
+  &:disabled {
+    background-color: var(--disabled-background-field);
+    color: var(--disabled-color-field);
+    border-color: var(--disabled-background-field);
+    cursor: not-allowed;
+    opacity: $opacity-disabled;
+  }
+
+  &+button {
+    margin-left: 0.5rem;
+  }
+
+  .buttons.has-addons &+.button {
+    margin-left: 0;
+  }
+}
+
+@mixin button-variant($base-color, $intensity: 10%) {
+  @if (meta.type-of($base-color) !='color') {
+    @error "El parámetro \$base-color debe ser un color válido, se recibió: #{$base-color}";
+  }
+
+  $hover-color: color.adjust($base-color, $lightness: $intensity);
+  $active-color: color.adjust($base-color, $lightness: -$intensity);
+  $text-color: if(color-fn.contrast-ratio($base-color, #fff) < 4.5, #000, #fff);
+
+  background-color: $base-color;
+  color: $text-color;
+  border: 1px solid $base-color;
+  transition: background-color 0.3s ease,
+  border-color 0.3s ease,
+  color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-color;
+    border-color: $hover-color;
+    color: $text-color;
+  }
+
+  &:active {
+    background-color: $active-color;
+    border-color: $active-color;
+    color: $text-color;
+  }
+}

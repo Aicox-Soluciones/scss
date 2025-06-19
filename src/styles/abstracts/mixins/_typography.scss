@@ -1,0 +1,10 @@
+// ==============================
+// Mixin para aplicar estilos tipográficos
+// ==============================
+
+@mixin text-style($size, $weight: $font-weight-regular, $line-height: $line-height-normal, $letter-spacing: $letter-spacing-normal) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
